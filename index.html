@@ -1,0 +1,96 @@
+<head>
+    <style>
+        @font-face{
+            font-family: bender;
+            src: url('./static/BenderBold.otf');
+        }
+        
+        body {
+            background-color: #000000;
+            font-family: bender;
+            font-size: 12pt;
+            color: #FFFFFF;
+            padding-right: 128px;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+        
+        .container {
+            margin: 0px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-bottom: 16px;
+        }
+        
+        .card {
+            width: 88px;
+            height: 88px;
+            background-size: 100% 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding: 4px;
+        }
+        
+        .sidebar {
+            position: fixed;
+            right: 16px;
+            display: flex;
+            justify-content: right;
+            align-content: center;
+            flex-direction: column;
+            top: 50%;
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        
+        .navigation {
+            margin: 8px;
+            color:#FFF;
+            
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 20px #FFFFFF;
+        }
+        
+        .label {
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, 0 0 20px #FFFFFF;
+        }
+        
+        input[type="range"] {
+            writing-mode: vertical-lr;
+            direction: rtl;
+            height: 500px;
+        }
+
+    </style>
+    
+    <script>
+    function update_cards() {
+        var cusid_ele = document.getElementsByClassName('card');
+        var cutoff = document.getElementById('amountCutoff');
+        
+        console.log(cutoff.value);
+        
+        for (var i = 0; i < cusid_ele.length; ++i) {
+            var item = cusid_ele[i];  
+            if (Number(item.dataset.value) < Number(cutoff.value)) {
+                item.style.display = 'none';
+            } else {
+                item.style.display = 'flex';
+            }
+        }
+        
+        document.getElementById('cutoffLabel').innerHTML = "₽ " + String(cutoff.value);
+    }
+    </script>
+    <script src="./populate.js"></script>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <label class="label" style="align-self: center;">Cutoff:</label>
+        <label class="label" id="cutoffLabel" style="align-self: center;">₽ 0</label>
+        <input id="amountCutoff" type="range" min="0" max="250000" step="1000" value="0" oninput="update_cards()">
+    </div>
+</body>
