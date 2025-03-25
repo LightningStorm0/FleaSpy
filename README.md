@@ -1,6 +1,8 @@
-Fleaspy.dev is a simple webpage for viewing Escape From Tarkov item values at a glance.
+## [Fleaspy.com](https://fleaspy.com/)
 
-As a newer player, knowing what to keep and what to throw out (especially on scav raids) was annoying. I found myself constantly searching items just to see the values. So I created Fleaspy.dev.
+**A simple webpage for viewing Escape From Tarkov item values at a glance.**
+
+As a newer player, knowing what to keep and what to throw out (especially on scav raids) was annoying. I found myself constantly searching items just to see the values. So I created Fleaspy.com.
 
  - Item price is displayed as the per slot price, them the full price in parenthesis (if the item is larger than one slot).
  - You can set a minimum value cutoff to only see items above a vertain price, makes it a bit less overwhelming.
