@@ -10,7 +10,8 @@
             font-family: bender;
             font-size: 12pt;
             color: #FFFFFF;
-            padding-right: 128px;
+            padding-right: 180px;
+            padding-left: 20px;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
         }
         
@@ -40,10 +41,26 @@
             display: flex;
             justify-content: right;
             align-content: center;
-            flex-direction: column;
+            flex-direction: row;
             top: 50%;
             -ms-transform: translateY(-50%);
             transform: translateY(-50%);
+        }
+
+        .sidebarInnerL {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            flex-direction: column;
+            width: 100px;
+        }
+
+        .sidebarInnerR {
+            display: flex;
+            justify-content: right;
+            align-content: center;
+            flex-direction: column;
+            width: 100px;
         }
         
         .navigation {
@@ -64,34 +81,19 @@
         }
 
     </style>
-    
-    <script>
-    function update_cards() {
-        var cusid_ele = document.getElementsByClassName('card');
-        var cutoff = document.getElementById('amountCutoff');
-        
-        console.log(cutoff.value);
-        
-        for (var i = 0; i < cusid_ele.length; ++i) {
-            var item = cusid_ele[i];  
-            if (Number(item.dataset.value) < Number(cutoff.value)) {
-                item.style.display = 'none';
-            } else {
-                item.style.display = 'flex';
-            }
-        }
-        
-        document.getElementById('cutoffLabel').innerHTML = "₽ " + String(cutoff.value);
-    }
-    </script>
     <script src="./populate.js"></script>
     <title>FleaSpy - Tarkov item value at a glance</title>
 </head>
 
 <body>
-    <div class="sidebar" id="sidebar">
-        <label class="label" style="align-self: center;">Cutoff:</label>
-        <label class="label" id="cutoffLabel" style="align-self: center;">₽ 0</label>
-        <input id="amountCutoff" type="range" min="0" max="250000" step="1000" value="0" oninput="update_cards()">
+    <div class="sidebar">
+        <div class="sidebarInnerL">
+            <label class="label" style="align-self: center;">Cutoff:</label>
+            <label class="label" id="cutoffLabel" style="align-self: center;">₽ 0</label>
+            <input id="amountCutoff" type="range" min="0" max="250000" step="1000" value="0" oninput="update_cards()">
+        </div>
+        <div class="sidebarInnerR" id="sidebar">
+        </div>
     </div>
+    <t> Thank you to Tarkov.dev <a href="https://tarkov.dev/api/">API</a> for making this possible. Consider making a donation to them if you're able!</t>
 </body>

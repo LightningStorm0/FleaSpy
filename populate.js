@@ -128,6 +128,7 @@ function sortData(data) {
     }
 
     renderPage(sortedValues, types);
+    update_cards();
 }
 
 function renderPage(sortedValues, types) {
@@ -203,4 +204,22 @@ function renderPage(sortedValues, types) {
 
         document.body.appendChild(container);
     }
+}
+
+function update_cards() {
+    var cusid_ele = document.getElementsByClassName('card');
+    var cutoff = document.getElementById('amountCutoff');
+    
+    console.log(cutoff.value);
+    
+    for (var i = 0; i < cusid_ele.length; ++i) {
+        var item = cusid_ele[i];  
+        if (Number(item.dataset.value) < Number(cutoff.value)) {
+            item.style.display = 'none';
+        } else {
+            item.style.display = 'flex';
+        }
+    }
+    
+    document.getElementById('cutoffLabel').innerHTML = "₽ " + String(cutoff.value);
 }
