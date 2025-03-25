@@ -2,6 +2,8 @@
 
 **A simple webpage for viewing Escape From Tarkov item values at a glance.**
 
+![preview image](https://github.com/LightningStorm0/FleaSpy/blob/main/preview.png?raw=true)
+
 As a newer player, knowing what to keep and what to throw out (especially on scav raids) was annoying. I found myself constantly searching items just to see the values. So I created Fleaspy.com.
 
  - Item price is displayed as the per slot price, them the full price in parenthesis (if the item is larger than one slot).
