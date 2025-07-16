@@ -38,8 +38,10 @@ function sortData(data) {
             sellFor = item['sellFor'][sellForNo];
 
             if (highest == 0 || sellFor['priceRUB'] > highest) {
-                highest = sellFor['priceRUB'];
-                source = sellFor['source'];
+                if (sellFor['source'] != 'FLEAMARKET') { //ADDED SINCE FLEA IS DISABLED THIS WIPE
+                    highest = sellFor['priceRUB'];
+                    source = sellFor['source'];
+                }
             }
         }
 
